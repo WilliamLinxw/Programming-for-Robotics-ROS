@@ -1,0 +1,6 @@
+devel_space: /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel
+install: false
+install_space: /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/install
+profile: default
+source_space: /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src
+workspace: /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws

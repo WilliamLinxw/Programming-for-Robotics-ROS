@@ -1,0 +1,46 @@
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/./local_setup.bash
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/./env.sh
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/./setup.bash
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/./setup.zsh
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/./setup.sh
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/./local_setup.zsh
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/./_setup_util.py
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/./cmake.lock
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/./local_setup.sh
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/lib/pkgconfig/catkin_tools_prebuild.pc
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/local_setup.bash, /home/lin/Workspaces/smb_ws/devel/./local_setup.bash)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/env.sh, /home/lin/Workspaces/smb_ws/devel/./env.sh)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/setup.bash, /home/lin/Workspaces/smb_ws/devel/./setup.bash)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/setup.zsh, /home/lin/Workspaces/smb_ws/devel/./setup.zsh)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/setup.sh, /home/lin/Workspaces/smb_ws/devel/./setup.sh)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/local_setup.zsh, /home/lin/Workspaces/smb_ws/devel/./local_setup.zsh)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/_setup_util.py, /home/lin/Workspaces/smb_ws/devel/./_setup_util.py)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/cmake.lock, /home/lin/Workspaces/smb_ws/devel/./cmake.lock)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/local_setup.sh, /home/lin/Workspaces/smb_ws/devel/./local_setup.sh)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake, /home/lin/Workspaces/smb_ws/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake, /home/lin/Workspaces/smb_ws/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/catkin_tools_prebuild/lib/pkgconfig/catkin_tools_prebuild.pc, /home/lin/Workspaces/smb_ws/devel/lib/pkgconfig/catkin_tools_prebuild.pc)
+Unlinking: /home/lin/Workspaces/smb_ws/devel/./local_setup.bash
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/./env.sh
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/./setup.bash
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/./setup.zsh
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/./setup.sh
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/./local_setup.zsh
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/./_setup_util.py
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/./local_setup.sh
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig.cmake
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/share/catkin_tools_prebuild/cmake/catkin_tools_prebuildConfig-version.cmake
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/lib/pkgconfig/catkin_tools_prebuild.pc
+Already unlinked: {}

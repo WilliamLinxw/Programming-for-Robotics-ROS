@@ -1,0 +1,8 @@
+prefix=/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/install
+
+Name: smb_highlevel_controller_self
+Description: Description of smb_highlevel_controller_self
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

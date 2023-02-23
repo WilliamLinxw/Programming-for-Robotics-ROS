@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+    <arg name="world" default="robocup14_spl_field"/>
+    <arg name="world_directory" default="/usr/share/gazebo-11/worlds"/>
+
+    <include file="$(find smb_gazebo)/launch/smb_gazebo.launch">
+        <arg name="world" value="$(arg world)"/>
+        <arg name="world_file" value="$(arg world_directory)/$(arg world).world"/>
+    </include>
+
+    <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop_twist_keyboard" output="screen" launch-prefix="gnome-terminal --command"/>
+
+</launch>

@@ -1,0 +1,17 @@
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/share/smb_gazebo/cmake/smb_gazeboConfig.cmake
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/share/smb_gazebo/cmake/smb_gazeboConfig-version.cmake
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/lib/libodometry_source_plugin.so
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/lib/pkgconfig/smb_gazebo.pc
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_gazebo/cmake.lock, /home/lin/Workspaces/smb_ws/devel/./cmake.lock)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_gazebo/share/smb_gazebo/cmake/smb_gazeboConfig.cmake, /home/lin/Workspaces/smb_ws/devel/share/smb_gazebo/cmake/smb_gazeboConfig.cmake)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_gazebo/share/smb_gazebo/cmake/smb_gazeboConfig-version.cmake, /home/lin/Workspaces/smb_ws/devel/share/smb_gazebo/cmake/smb_gazeboConfig-version.cmake)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_gazebo/lib/libodometry_source_plugin.so, /home/lin/Workspaces/smb_ws/devel/lib/libodometry_source_plugin.so)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_gazebo/lib/pkgconfig/smb_gazebo.pc, /home/lin/Workspaces/smb_ws/devel/lib/pkgconfig/smb_gazebo.pc)
+Unlinking: /home/lin/Workspaces/smb_ws/devel/share/smb_gazebo/cmake/smb_gazeboConfig.cmake
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/share/smb_gazebo/cmake/smb_gazeboConfig-version.cmake
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/lib/libodometry_source_plugin.so
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/lib/pkgconfig/smb_gazebo.pc
+Already unlinked: {}

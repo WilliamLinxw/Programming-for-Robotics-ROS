@@ -1,0 +1,13 @@
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/share/smb_highlevel_controller_self/cmake/smb_highlevel_controller_selfConfig-version.cmake
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/share/smb_highlevel_controller_self/cmake/smb_highlevel_controller_selfConfig.cmake
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/lib/pkgconfig/smb_highlevel_controller_self.pc
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_highlevel_controller_self/cmake.lock, /home/lin/Workspaces/smb_ws/devel/./cmake.lock)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_highlevel_controller_self/share/smb_highlevel_controller_self/cmake/smb_highlevel_controller_selfConfig-version.cmake, /home/lin/Workspaces/smb_ws/devel/share/smb_highlevel_controller_self/cmake/smb_highlevel_controller_selfConfig-version.cmake)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_highlevel_controller_self/share/smb_highlevel_controller_self/cmake/smb_highlevel_controller_selfConfig.cmake, /home/lin/Workspaces/smb_ws/devel/share/smb_highlevel_controller_self/cmake/smb_highlevel_controller_selfConfig.cmake)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_highlevel_controller_self/lib/pkgconfig/smb_highlevel_controller_self.pc, /home/lin/Workspaces/smb_ws/devel/lib/pkgconfig/smb_highlevel_controller_self.pc)
+Unlinking: /home/lin/Workspaces/smb_ws/devel/share/smb_highlevel_controller_self/cmake/smb_highlevel_controller_selfConfig-version.cmake
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/share/smb_highlevel_controller_self/cmake/smb_highlevel_controller_selfConfig.cmake
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/lib/pkgconfig/smb_highlevel_controller_self.pc
+Already unlinked: {}

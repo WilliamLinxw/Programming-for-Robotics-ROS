@@ -1,0 +1,13 @@
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/share/smb_description/cmake/smb_descriptionConfig-version.cmake
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/share/smb_description/cmake/smb_descriptionConfig.cmake
+Symlinking /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/lib/pkgconfig/smb_description.pc
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_description/cmake.lock, /home/lin/Workspaces/smb_ws/devel/./cmake.lock)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_description/share/smb_description/cmake/smb_descriptionConfig-version.cmake, /home/lin/Workspaces/smb_ws/devel/share/smb_description/cmake/smb_descriptionConfig-version.cmake)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_description/share/smb_description/cmake/smb_descriptionConfig.cmake, /home/lin/Workspaces/smb_ws/devel/share/smb_description/cmake/smb_descriptionConfig.cmake)
+Cleaning: (/home/lin/Workspaces/smb_ws/devel/.private/smb_description/lib/pkgconfig/smb_description.pc, /home/lin/Workspaces/smb_ws/devel/lib/pkgconfig/smb_description.pc)
+Unlinking: /home/lin/Workspaces/smb_ws/devel/share/smb_description/cmake/smb_descriptionConfig-version.cmake
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/share/smb_description/cmake/smb_descriptionConfig.cmake
+Already unlinked: {}
+Unlinking: /home/lin/Workspaces/smb_ws/devel/lib/pkgconfig/smb_description.pc
+Already unlinked: {}

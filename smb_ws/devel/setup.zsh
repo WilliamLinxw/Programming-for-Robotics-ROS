@@ -1,0 +1,1 @@
+/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/.private/catkin_tools_prebuild/setup.zsh

@@ -1,0 +1,8 @@
+prefix=/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/.private/smb_control
+
+Name: smb_control
+Description: Description of smb_control
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

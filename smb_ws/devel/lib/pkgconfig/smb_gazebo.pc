@@ -1,0 +1,1 @@
+/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/.private/smb_gazebo/lib/pkgconfig/smb_gazebo.pc
