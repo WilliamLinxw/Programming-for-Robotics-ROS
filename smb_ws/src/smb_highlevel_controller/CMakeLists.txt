@@ -12,6 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
 )
 
+
+
 ## System dependencies are found with CMake's conventions, this is called when packages other than
 ## ROS packages are needed.
 # find_package(PCL REQUIRED COMPONENTS)

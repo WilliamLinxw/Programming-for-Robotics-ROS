@@ -79,7 +79,7 @@ namespace smb_highlevel_controller
       }
     }
     else{
-      if (abs(min) > 1)
+      if (abs(min) > 5)
       {
         float p = 1;
         velo_command.linear.x = proportional * min;
@@ -93,6 +93,30 @@ namespace smb_highlevel_controller
         ROS_INFO("Arrived");
       }
     }
+
+    visualization_msgs::Marker marker;
+    marker.header.frame_id = "base_link";
+    marker.header.stamp = ros::Time();
+    marker.ns = "pillar";
+    marker.id = 0;
+    marker.type = visualization_msgs::Marker::SPHERE;
+    marker.action = visualization_msgs::Marker::ADD;
+    marker.pose.position.x = (min) * sin(angle_from_right);
+    marker.pose.position.y = -(min) * cos(angle_from_right);;
+    marker.pose.position.z = 0.1;
+    marker.pose.orientation.x = 0.0;
+    marker.pose.orientation.y = 0.0;
+    marker.pose.orientation.z = 0.0;
+    marker.pose.orientation.w = 1.0;
+    marker.scale.x = 1;
+    marker.scale.y = 1;
+    marker.scale.z = 1;
+    marker.color.a = 1.0; // Don't forget to set the alpha!
+    marker.color.r = 1.0;
+    marker.color.g = 1.0;
+    marker.color.b = 1.0;
+    vis_pub.publish( marker );
+    ROS_INFO("MARKER PUBLISHED");
     
   }
 
@@ -101,7 +125,11 @@ namespace smb_highlevel_controller
     int height = cloud_msg->height;
     int width = cloud_msg->width;
     int num = height * width;
+    // int size = cloud_msg->data.size();
+    // int point_step = cloud_msg->point_step;
     ROS_INFO("height: %d; width: %d; total: %d", height, width, num);
+    // ROS_INFO("point_step: %d", point_step);
+    // ROS_INFO("total: %d", size);
 
     // pcl::PointCloud<pcl::PointXYZ> cloud;
     // pcl::fromROSMsg(*cloud_msg, cloud);
@@ -115,29 +143,7 @@ namespace smb_highlevel_controller
     //     ROS_INFO("Coordinate of the first point: (%f, %f, %f)", x, y, z);
     // }
 
-    // visualization_msgs::Marker marker;
-    // marker.header.frame_id = "odom";
-    // marker.header.stamp = ros::Time();
-    // marker.ns = "my_namespace";
-    // marker.id = 0;
-    // marker.type = visualization_msgs::Marker::SPHERE;
-    // marker.action = visualization_msgs::Marker::ADD;
-    // marker.pose.position.x = 1;
-    // marker.pose.position.y = 1;
-    // marker.pose.position.z = 1;
-    // marker.pose.orientation.x = 0.0;
-    // marker.pose.orientation.y = 0.0;
-    // marker.pose.orientation.z = 0.0;
-    // marker.pose.orientation.w = 1.0;
-    // marker.scale.x = 1;
-    // marker.scale.y = 1;
-    // marker.scale.z = 1;
-    // marker.color.a = 1.0; // Don't forget to set the alpha!
-    // marker.color.r = 1.0;
-    // marker.color.g = 1.0;
-    // marker.color.b = 1.0;
-    // vis_pub.publish( marker );
-    // ROS_INFO("MARKER PUBLISHED");
+    
   }
 
 } /* namespace */

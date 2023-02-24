@@ -1,0 +1,10 @@
+/usr/bin/ld: CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o: in function `void pcl::detail::FieldMapper<pcl::PointXYZ>::operator()<pcl::fields::x>()':
+SmbHighlevelController.cpp:(.text._ZN3pcl6detail11FieldMapperINS_8PointXYZEEclINS_6fields1xEEEvv[_ZN3pcl6detail11FieldMapperINS_8PointXYZEEclINS_6fields1xEEEvv]+0xe8): undefined reference to `pcl::console::print(pcl::console::VERBOSITY_LEVEL, char const*, ...)'
+/usr/bin/ld: CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o: in function `void pcl::detail::FieldMapper<pcl::PointXYZ>::operator()<pcl::fields::y>()':
+SmbHighlevelController.cpp:(.text._ZN3pcl6detail11FieldMapperINS_8PointXYZEEclINS_6fields1yEEEvv[_ZN3pcl6detail11FieldMapperINS_8PointXYZEEclINS_6fields1yEEEvv]+0xe8): undefined reference to `pcl::console::print(pcl::console::VERBOSITY_LEVEL, char const*, ...)'
+/usr/bin/ld: CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o: in function `void pcl::detail::FieldMapper<pcl::PointXYZ>::operator()<pcl::fields::z>()':
+SmbHighlevelController.cpp:(.text._ZN3pcl6detail11FieldMapperINS_8PointXYZEEclINS_6fields1zEEEvv[_ZN3pcl6detail11FieldMapperINS_8PointXYZEEclINS_6fields1zEEEvv]+0xe8): undefined reference to `pcl::console::print(pcl::console::VERBOSITY_LEVEL, char const*, ...)'
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/smb_highlevel_controller.dir/build.make:116: /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/.private/smb_highlevel_controller/lib/smb_highlevel_controller/smb_highlevel_controller] Error 1
+make[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/smb_highlevel_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

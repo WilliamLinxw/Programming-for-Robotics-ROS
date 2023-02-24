@@ -239,7 +239,7 @@ Visualization Manager:
       Marker Topic: /smb_highlevel_controller/visualization_marker
       Name: Marker
       Namespaces:
-        my_namespace: true
+        pillar: true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -270,7 +270,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.383180141448975
+      Distance: 12.445067405700684
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -278,17 +278,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -1.764007806777954
-        Y: -1.1875733137130737
-        Z: 2.707043409347534
+        X: -1.4696722030639648
+        Y: 3.067979097366333
+        Z: 2.8146722316741943
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3553988039493561
+      Pitch: 0.30039888620376587
       Target Frame: <Fixed Frame>
-      Yaw: 2.975396156311035
+      Yaw: 2.735398292541504
     Saved: ~
 Window Geometry:
   Displays:
