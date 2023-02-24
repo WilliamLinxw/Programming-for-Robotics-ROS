@@ -1,0 +1,11 @@
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:[m[K In constructor ‘[01m[Ksmb_highlevel_controller::SmbHighlevelController::SmbHighlevelController(ros::NodeHandle&)[m[K’:
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:25:30:[m[K [01;31m[Kerror: [m[K‘[01m[Knode_handle[m[K’ was not declared in this scope; did you mean ‘[01m[KnodeHandle[m[K’?
+   25 |     ros::Publisher vis_pub = [01;31m[Knode_handle[m[K.advertise<visualization_msgs::Marker>( "visualization_marker", 0 );
+      |                              [01;31m[K^~~~~~~~~~~[m[K
+      |                              [32m[KnodeHandle[m[K
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:25:78:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K>[m[K’ token
+   25 |     ros::Publisher vis_pub = node_handle.advertise<visualization_msgs::Marker[01;31m[K>[m[K( "visualization_marker", 0 );
+      |                                                                              [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/smb_highlevel_controller.dir/build.make:76: CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/smb_highlevel_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

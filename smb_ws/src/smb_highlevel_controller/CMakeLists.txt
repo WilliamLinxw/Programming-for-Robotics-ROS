@@ -9,11 +9,15 @@ add_compile_options(-std=c++11)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions, this is called when packages other than
 ## ROS packages are needed.
-# find_package(Boost REQUIRED COMPONENTS system)
+# find_package(PCL REQUIRED COMPONENTS)
+# find_package(PCL REQUIRED)
+# find_package(pcl_conversions REQUIRED)
+
 
 ###################################
 ## catkin specific configuration ##
@@ -24,16 +28,14 @@ catkin_package(
   CATKIN_DEPENDS
     roscpp
     sensor_msgs
+    geometry_msgs
 )
 
 ###########
 ## Build ##
 ###########
 
-include_directories(
-  include
-  ${catkin_INCLUDE_DIRS}
-)
+include_directories( include ${catkin_INCLUDE_DIRS})
 
 # Declare a C++ executable
 add_executable(${PROJECT_NAME}
@@ -43,8 +45,7 @@ add_executable(${PROJECT_NAME}
 # message(INFO ${catkin_LIBRARIES})
 # Specify libraries to link a library or executable target against
 target_link_libraries(${PROJECT_NAME}
-  ${catkin_LIBRARIES}
-)
+  ${catkin_LIBRARIES})
 
 #############
 ## Install ##

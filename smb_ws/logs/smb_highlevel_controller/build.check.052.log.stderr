@@ -1,0 +1,5 @@
+[31m[1mCMake Error[0m at /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/CMakeLists.txt:17 (find_package):
+  find_package called with invalid argument "pcl_conversions"
+
+
+make: *** [Makefile:744: cmake_check_build_system] Error 1

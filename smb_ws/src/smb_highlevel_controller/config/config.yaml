@@ -1,2 +1,3 @@
 topic: "/scan"
 queue_size: 10
+proportional: 1

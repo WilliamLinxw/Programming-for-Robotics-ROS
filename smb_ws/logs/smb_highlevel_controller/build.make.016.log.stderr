@@ -1,0 +1,7 @@
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:[m[K In member function ‘[01m[Kvoid smb_highlevel_controller::SmbHighlevelController::topicCallback(const ConstPtr&)[m[K’:
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:67:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass ros::Publisher[m[K’ has no member named ‘[01m[Kpub[m[K’
+   67 |     go_to_pillar.[01;31m[Kpub[m[K(velo_command);
+      |                  [01;31m[K^~~[m[K
+make[2]: *** [CMakeFiles/smb_highlevel_controller.dir/build.make:76: CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/smb_highlevel_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

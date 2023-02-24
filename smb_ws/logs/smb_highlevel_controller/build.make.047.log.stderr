@@ -1,0 +1,7 @@
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:[m[K In member function ‘[01m[Kvoid smb_highlevel_controller::SmbHighlevelController::pointcloudCallback(const ConstPtr&)[m[K’:
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:143:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kvis_pub[m[K’ was not declared in this scope
+  143 |     [01;31m[Kvis_pub[m[K.publish( marker );
+      |     [01;31m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/smb_highlevel_controller.dir/build.make:76: CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/smb_highlevel_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

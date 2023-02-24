@@ -1,25 +1,29 @@
 #include <smb_highlevel_controller/SmbHighlevelController.hpp>
-#include <algorithm>
+
 
 namespace smb_highlevel_controller
 {
 
   SmbHighlevelController::SmbHighlevelController(ros::NodeHandle &nodeHandle) : nodeHandle_(nodeHandle)
-  {
-    std::string topic;
-    int queue_size;
-    if (!nodeHandle.getParam("topic", topic))
+  {  
+    if (!nodeHandle_.getParam("topic", topic))
     {
       ROS_ERROR("Could not find topic parameter!");
     }
-    if (!nodeHandle.getParam("queue_size", queue_size))
+    if (!nodeHandle_.getParam("queue_size", queue_size))
     {
       ROS_ERROR("Could not find queue_size parameter!");
     }
-    ROS_INFO("%s", topic.c_str());
-    ROS_INFO("%d", queue_size);
+    if(!nodeHandle_.getParam("proportional", proportional)){
+      ROS_ERROR("Could not find proportional parameter!");
+    }
     subscriber_ = nodeHandle_.subscribe(topic, queue_size, &SmbHighlevelController::topicCallback, this);
     sub_pointcloud = nodeHandle_.subscribe("/rslidar_points", 10, &SmbHighlevelController::pointcloudCallback, this);
+    go_to_pillar = nodeHandle_.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
+    vis_pub = nodeHandle_.advertise<visualization_msgs::Marker>( "visualization_marker", 10);
+    
+
+    turned = false;
     ROS_INFO("Successfully launched node.");
   }
 
@@ -32,6 +36,7 @@ namespace smb_highlevel_controller
     // float array_size = sizeof(msg->ranges);
     // float bit_size = sizeof((msg->ranges)[0]);
     int size = msg->ranges.size();
+    float angle_inc = msg->angle_increment;
 
     // auto start = std::begin(msg->ranges);
     // auto end = start + size;
@@ -39,24 +44,100 @@ namespace smb_highlevel_controller
     // for(int )
 
     float min = msg->ranges[0];
+    int index = 0;
     for (int i = 1; i <= size - 1; i++)
     {
       // ROS_INFO("range: (%d, %f)", i, min);
       if (msg->ranges[i] < min)
       {
         min = msg->ranges[i];
+        index = i;
       }
     }
-    ROS_INFO("min range: %f", min);
-    // ROS_INFO("full_size: %f, bit_size: %f, size: %d", array_size, bit_size, size);
+    float angle_from_right = index * angle_inc;
+    float angle_to_middle = -M_PI / 2 + angle_from_right;
+    ROS_INFO("min range: %f; index: %d", min, index);
+    ROS_INFO("angle increment: %f", angle_inc);
+    ROS_INFO("angle from right: %f", angle_from_right);
+    ROS_INFO("angle to middle: %f", angle_to_middle);
+
+    // Construct the command message
+    geometry_msgs::Twist velo_command;
+    if(!turned){
+      if (abs(angle_to_middle) > 0.01)
+      {
+        velo_command.angular.z = proportional * angle_to_middle;
+        go_to_pillar.publish(velo_command);
+        ROS_INFO("angular velocity command: %f", velo_command.angular.z);
+      }
+      else
+      {
+        velo_command.angular.z = 0;
+        go_to_pillar.publish(velo_command);
+        turned = true;
+        ROS_INFO("Turned");
+      }
+    }
+    else{
+      if (abs(min) > 1)
+      {
+        float p = 1;
+        velo_command.linear.x = proportional * min;
+        go_to_pillar.publish(velo_command);
+        ROS_INFO("linear velocity command: %f", velo_command.linear.x);
+      }
+      else
+      {
+        velo_command.angular.x = 0;
+        go_to_pillar.publish(velo_command);
+        ROS_INFO("Arrived");
+      }
+    }
+    
   }
 
   void SmbHighlevelController::pointcloudCallback(const sensor_msgs::PointCloud2::ConstPtr &cloud_msg)
   {
     int height = cloud_msg->height;
     int width = cloud_msg->width;
-    int num = height*width;
+    int num = height * width;
     ROS_INFO("height: %d; width: %d; total: %d", height, width, num);
+
+    // pcl::PointCloud<pcl::PointXYZ> cloud;
+    // pcl::fromROSMsg(*cloud_msg, cloud);
+
+    // if (!cloud.empty())
+    // {
+    //     pcl::PointXYZ point = cloud.points[0];
+    //     float x = point.x;
+    //     float y = point.y;
+    //     float z = point.z;
+    //     ROS_INFO("Coordinate of the first point: (%f, %f, %f)", x, y, z);
+    // }
+
+    // visualization_msgs::Marker marker;
+    // marker.header.frame_id = "odom";
+    // marker.header.stamp = ros::Time();
+    // marker.ns = "my_namespace";
+    // marker.id = 0;
+    // marker.type = visualization_msgs::Marker::SPHERE;
+    // marker.action = visualization_msgs::Marker::ADD;
+    // marker.pose.position.x = 1;
+    // marker.pose.position.y = 1;
+    // marker.pose.position.z = 1;
+    // marker.pose.orientation.x = 0.0;
+    // marker.pose.orientation.y = 0.0;
+    // marker.pose.orientation.z = 0.0;
+    // marker.pose.orientation.w = 1.0;
+    // marker.scale.x = 1;
+    // marker.scale.y = 1;
+    // marker.scale.z = 1;
+    // marker.color.a = 1.0; // Don't forget to set the alpha!
+    // marker.color.r = 1.0;
+    // marker.color.g = 1.0;
+    // marker.color.b = 1.0;
+    // vis_pub.publish( marker );
+    // ROS_INFO("MARKER PUBLISHED");
   }
 
 } /* namespace */
