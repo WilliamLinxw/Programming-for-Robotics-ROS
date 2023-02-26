@@ -47,11 +47,15 @@ private:
 
 	bool turned;
 
+	bool arrived;
+
 	int proportional;
 
 	int queue_size;
 
 	std::string topic;
+
+	int command_to_go;
 };
 
 } /* namespace */

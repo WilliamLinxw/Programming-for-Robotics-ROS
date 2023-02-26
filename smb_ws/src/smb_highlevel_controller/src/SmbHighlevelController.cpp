@@ -23,6 +23,8 @@ namespace smb_highlevel_controller
     vis_pub = nodeHandle_.advertise<visualization_msgs::Marker>("visualization_marker", 10);
 
     turned = false;
+    arrived = false;
+    command_to_go = -11;
     ROS_INFO("Successfully launched node.");
   }
 
@@ -80,12 +82,24 @@ namespace smb_highlevel_controller
     }
     else
     {
-      velo_command.linear.x = proportional * (min - 5);
+      velo_command.linear.x = proportional * (min - 0.9);
       go_to_pillar.publish(velo_command);
       ROS_INFO("linear velocity command: %f", velo_command.linear.x);
-      if (abs(min - 5) < 0.05)
+      if (abs(min - 0.9) < 0.05)
       {
-        ROS_INFO("Arrived");
+        ROS_INFO("--------------------Arrived-----------------------");
+        arrived = true;
+      }
+      if (arrived == true && command_to_go >= 0)
+      {
+        velo_command.linear.x = 1;
+        command_to_go--;
+        go_to_pillar.publish(velo_command);
+      }
+      else if (arrived == true && command_to_go < 0)
+      {
+        velo_command.linear.x = 0;
+        go_to_pillar.publish(velo_command);
       }
     }
 
@@ -99,18 +113,18 @@ namespace smb_highlevel_controller
     marker.pose.position.x = (min)*sin(angle_from_right);
     marker.pose.position.y = -(min)*cos(angle_from_right);
     ;
-    marker.pose.position.z = 0.1;
+    marker.pose.position.z = 0.2;
     marker.pose.orientation.x = 0.0;
     marker.pose.orientation.y = 0.0;
     marker.pose.orientation.z = 0.0;
     marker.pose.orientation.w = 1.0;
-    marker.scale.x = 1;
-    marker.scale.y = 1;
-    marker.scale.z = 1;
+    marker.scale.x = 0.1;
+    marker.scale.y = 0.1;
+    marker.scale.z = 0.1;
     marker.color.a = 1.0; // Don't forget to set the alpha!
-    marker.color.r = 1.0;
+    marker.color.r = 0.0;
     marker.color.g = 1.0;
-    marker.color.b = 1.0;
+    marker.color.b = 0.0;
     vis_pub.publish(marker);
     ROS_INFO("MARKER PUBLISHED");
   }
