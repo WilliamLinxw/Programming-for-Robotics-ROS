@@ -1,11 +1,10 @@
 #include <smb_highlevel_controller/SmbHighlevelController.hpp>
 
-
 namespace smb_highlevel_controller
 {
 
   SmbHighlevelController::SmbHighlevelController(ros::NodeHandle &nodeHandle) : nodeHandle_(nodeHandle)
-  {  
+  {
     if (!nodeHandle_.getParam("topic", topic))
     {
       ROS_ERROR("Could not find topic parameter!");
@@ -14,14 +13,14 @@ namespace smb_highlevel_controller
     {
       ROS_ERROR("Could not find queue_size parameter!");
     }
-    if(!nodeHandle_.getParam("proportional", proportional)){
+    if (!nodeHandle_.getParam("proportional", proportional))
+    {
       ROS_ERROR("Could not find proportional parameter!");
     }
     subscriber_ = nodeHandle_.subscribe(topic, queue_size, &SmbHighlevelController::topicCallback, this);
     sub_pointcloud = nodeHandle_.subscribe("/rslidar_points", 10, &SmbHighlevelController::pointcloudCallback, this);
     go_to_pillar = nodeHandle_.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
-    vis_pub = nodeHandle_.advertise<visualization_msgs::Marker>( "visualization_marker", 10);
-    
+    vis_pub = nodeHandle_.advertise<visualization_msgs::Marker>("visualization_marker", 10);
 
     turned = false;
     ROS_INFO("Successfully launched node.");
@@ -63,7 +62,8 @@ namespace smb_highlevel_controller
 
     // Construct the command message
     geometry_msgs::Twist velo_command;
-    if(!turned){
+    if (!turned)
+    {
       if (abs(angle_to_middle) > 0.01)
       {
         velo_command.angular.z = proportional * angle_to_middle;
@@ -78,18 +78,13 @@ namespace smb_highlevel_controller
         ROS_INFO("Turned");
       }
     }
-    else{
-      if (abs(min) > 5)
+    else
+    {
+      velo_command.linear.x = proportional * (min - 5);
+      go_to_pillar.publish(velo_command);
+      ROS_INFO("linear velocity command: %f", velo_command.linear.x);
+      if (abs(min - 5) < 0.05)
       {
-        float p = 1;
-        velo_command.linear.x = proportional * min;
-        go_to_pillar.publish(velo_command);
-        ROS_INFO("linear velocity command: %f", velo_command.linear.x);
-      }
-      else
-      {
-        velo_command.angular.x = 0;
-        go_to_pillar.publish(velo_command);
         ROS_INFO("Arrived");
       }
     }
@@ -101,8 +96,9 @@ namespace smb_highlevel_controller
     marker.id = 0;
     marker.type = visualization_msgs::Marker::SPHERE;
     marker.action = visualization_msgs::Marker::ADD;
-    marker.pose.position.x = (min) * sin(angle_from_right);
-    marker.pose.position.y = -(min) * cos(angle_from_right);;
+    marker.pose.position.x = (min)*sin(angle_from_right);
+    marker.pose.position.y = -(min)*cos(angle_from_right);
+    ;
     marker.pose.position.z = 0.1;
     marker.pose.orientation.x = 0.0;
     marker.pose.orientation.y = 0.0;
@@ -115,9 +111,8 @@ namespace smb_highlevel_controller
     marker.color.r = 1.0;
     marker.color.g = 1.0;
     marker.color.b = 1.0;
-    vis_pub.publish( marker );
+    vis_pub.publish(marker);
     ROS_INFO("MARKER PUBLISHED");
-    
   }
 
   void SmbHighlevelController::pointcloudCallback(const sensor_msgs::PointCloud2::ConstPtr &cloud_msg)
@@ -142,8 +137,6 @@ namespace smb_highlevel_controller
     //     float z = point.z;
     //     ROS_INFO("Coordinate of the first point: (%f, %f, %f)", x, y, z);
     // }
-
-    
   }
 
 } /* namespace */
