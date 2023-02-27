@@ -24,7 +24,7 @@ namespace smb_highlevel_controller
 
     turned = false;
     arrived = false;
-    command_to_go = -11;
+    command_to_go = 11;
     ROS_INFO("Successfully launched node.");
   }
 
