@@ -49,7 +49,7 @@ private:
 
 	bool arrived;
 
-	int proportional;
+	float proportional;
 
 	int queue_size;
 

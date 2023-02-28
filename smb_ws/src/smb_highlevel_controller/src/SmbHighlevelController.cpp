@@ -58,54 +58,65 @@ namespace smb_highlevel_controller
     float angle_from_right = index * angle_inc;
     float angle_to_middle = -M_PI / 2 + angle_from_right;
     ROS_INFO("min range: %f; index: %d", min, index);
-    ROS_INFO("angle increment: %f", angle_inc);
-    ROS_INFO("angle from right: %f", angle_from_right);
+    // ROS_INFO("angle increment: %f", angle_inc);
+    // ROS_INFO("angle from right: %f", angle_from_right);
     ROS_INFO("angle to middle: %f", angle_to_middle);
 
     // Construct the command message
     geometry_msgs::Twist velo_command;
-    if (!turned)
+    velo_command.angular.z = angle_to_middle * proportional;
+    if (min > 1)
     {
-      if (abs(angle_to_middle) > 0.01)
-      {
-        velo_command.angular.z = proportional * angle_to_middle;
-        go_to_pillar.publish(velo_command);
-        ROS_INFO("angular velocity command: %f", velo_command.angular.z);
-      }
-      else
-      {
-        velo_command.angular.z = 0;
-        go_to_pillar.publish(velo_command);
-        turned = true;
-        ROS_INFO("Turned");
-      }
+      velo_command.linear.x = 0.5;
     }
     else
     {
-      velo_command.linear.x = proportional * (min - 0.9);
-      go_to_pillar.publish(velo_command);
-      ROS_INFO("linear velocity command: %f", velo_command.linear.x);
-      if (abs(min - 0.9) < 0.05)
-      {
-        ROS_INFO("--------------------Arrived-----------------------");
-        arrived = true;
-      }
-      if (arrived == true && command_to_go >= 0)
-      {
-        velo_command.linear.x = 1;
-        command_to_go--;
-        go_to_pillar.publish(velo_command);
-      }
-      else if (arrived == true && command_to_go < 0)
-      {
-        velo_command.linear.x = 0;
-        go_to_pillar.publish(velo_command);
-      }
+      velo_command.linear.x = 0.0;
     }
+
+    go_to_pillar.publish(velo_command);
+    // if (!turned)
+    // {
+    //   if (abs(angle_to_middle) > 0.01)
+    //   {
+    //     velo_command.angular.z = proportional * angle_to_middle;
+    //     ROS_INFO("angular velocity command: %f", velo_command.angular.z);
+    //     go_to_pillar.publish(velo_command);
+    //   }
+    //   else
+    //   {
+    //     velo_command.angular.z = 0;
+    //     go_to_pillar.publish(velo_command);
+    //     turned = true;
+    //     ROS_INFO("Turned");
+    //   }
+    // }
+    // else
+    // {
+    //   velo_command.linear.x = 1;
+    //   go_to_pillar.publish(velo_command);
+    //   ROS_INFO("linear velocity command: %f", velo_command.linear.x);
+    //   if (abs(min - 0.9) < 0.05)
+    //   {
+    //     arrived = true;
+    //   }
+    //   if (arrived == true && command_to_go >= 0)
+    //   {
+    //     velo_command.linear.x = 1;
+    //     command_to_go--;
+    //     go_to_pillar.publish(velo_command);
+    //   }
+    //   else if (arrived == true && command_to_go < 0)
+    //   {
+    //     velo_command.linear.x = 0;
+    //     go_to_pillar.publish(velo_command);
+    //     ROS_INFO("--------------------Arrived-----------------------");
+    //   }
+    // }
 
     visualization_msgs::Marker marker;
     marker.header.frame_id = "base_link";
-    marker.header.stamp = ros::Time();
+    marker.header.stamp = ros::Time::now();
     marker.ns = "pillar";
     marker.id = 0;
     marker.type = visualization_msgs::Marker::SPHERE;
