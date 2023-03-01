@@ -65,13 +65,14 @@ namespace smb_highlevel_controller
     // Construct the command message
     geometry_msgs::Twist velo_command;
     velo_command.angular.z = angle_to_middle * proportional;
-    if (min > 1)
+    if (min > 2)
     {
       velo_command.linear.x = 0.5;
     }
     else
     {
       velo_command.linear.x = 0.0;
+      velo_command.angular.z = angle_to_middle * 0.1 * proportional;
     }
 
     go_to_pillar.publish(velo_command);

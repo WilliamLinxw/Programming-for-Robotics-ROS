@@ -1,0 +1,32 @@
+<launch>
+    <arg name="simulation" 			    default="true"/>
+    <arg name="robot_namespace" 		default=""/>
+    <arg name="enable_ekf" 			    default="true"/>
+    <arg name="robot_description"  	default="robot_description"/>
+    <arg name="description_file"    default="$(find smb_description)/urdf/smb_standalone.urdf.xacro"/>
+
+    <!-- Load robot description -->
+    <!-- Load robot description for gazebo -->
+    <include file="$(find smb_description)/launch/load.launch">
+        <arg name="simulation"       value="$(arg simulation)"/>
+        <arg name="description_name" value="$(arg robot_description)"/>
+        <arg name="description_file" value="$(arg description_file)"/>
+        <arg name="wheel_joint_type" value="continuous"/>
+        <arg name="robot_namespace"  value="$(arg robot_namespace)"/>
+    </include>
+
+    <node name="smb_robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen">
+        <param name="publish_frequency" value="50"/>
+        <param name="use_tf_static"     value="true"/>
+        <remap from="robot_description" to="$(arg robot_description)"/>
+    </node>
+
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find smb_highlevel_controller)/rviz/soccer.rviz"/>
+
+    <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+        <rosparam command="load" file="$(find smb_control)/config/localization.yaml" />
+    </node>
+
+    <node name="rqt_multiplot" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-run-all --multiplot-config $(find smb_highlevel_controller)/config/rqt_multiplot.xml" />
+    <param name="/use_sim_time" value="true"/>
+</launch>

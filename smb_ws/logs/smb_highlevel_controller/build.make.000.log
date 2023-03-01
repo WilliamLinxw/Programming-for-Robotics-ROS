@@ -1,0 +1,5 @@
+[35m[1mScanning dependencies of target smb_highlevel_controller[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/smb_highlevel_controller.dir/src/smb_highlevel_controller_node.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/.private/smb_highlevel_controller/lib/smb_highlevel_controller/smb_highlevel_controller[0m
+[100%] Built target smb_highlevel_controller
