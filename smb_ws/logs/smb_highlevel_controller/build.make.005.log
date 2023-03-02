@@ -1,0 +1,17 @@
+[35m[1mScanning dependencies of target smb_highlevel_controller[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/smb_highlevel_controller.dir/src/smb_highlevel_controller_node.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o[0m
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/smb_highlevel_controller_node.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Kros/ros.h: No such file or directory
+    1 | #include [01;31m[K<ros/ros.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~[m[K
+In file included from [01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:1[m[K:
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/include/smb_highlevel_controller/SmbHighlevelController.hpp:3:10:[m[K [01;31m[Kfatal error: [m[Kros/ros.h: No such file or directory
+    3 | #include [01;31m[K<ros/ros.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~[m[K
+compilation terminated.
+compilation terminated.
+make[2]: *** [CMakeFiles/smb_highlevel_controller.dir/build.make:63: CMakeFiles/smb_highlevel_controller.dir/src/smb_highlevel_controller_node.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/smb_highlevel_controller.dir/build.make:76: CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:249: CMakeFiles/smb_highlevel_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

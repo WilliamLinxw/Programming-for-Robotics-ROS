@@ -42,15 +42,7 @@ namespace smb_highlevel_controller
   bool SmbHighlevelController::stopCallback(std_srvs::SetBool::Request &request,
                                             std_srvs::SetBool::Response &response)
   {
-    if (request.data)
-    {
-      stop = true;
-    }
-    else
-    {
-      stop = false;
-    }
-
+    stop = request.data;
     response.success = true;
     response.message = "Service executed successfully";
     return true;

@@ -11,6 +11,7 @@
   <depend>roscpp</depend>
   <depend>sensor_msgs</depend>
   <depend>geometry_msgs</depend>
+  <depend>std_srvs</depend>
   <!-- <depend>pcl</depend> -->
   
   <!-- <build_depend>libpcl-all-dev</build_depend>

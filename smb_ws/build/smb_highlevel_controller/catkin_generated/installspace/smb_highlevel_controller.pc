@@ -5,4 +5,4 @@ Description: Description of smb_highlevel_controller
 Version: 0.1.0
 Cflags: -I${prefix}/include
 Libs: -L${prefix}/lib 
-Requires: roscpp sensor_msgs geometry_msgs
+Requires: roscpp sensor_msgs geometry_msgs std_srvs

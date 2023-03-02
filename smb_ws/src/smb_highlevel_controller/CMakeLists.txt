@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
   geometry_msgs
+  std_srvs
 )
 
 
@@ -31,6 +32,7 @@ catkin_package(
     roscpp
     sensor_msgs
     geometry_msgs
+    std_srvs
 )
 
 ###########
