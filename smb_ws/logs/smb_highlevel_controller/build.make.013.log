@@ -1,0 +1,25 @@
+[35m[1mScanning dependencies of target smb_highlevel_controller[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/smb_highlevel_controller.dir/src/smb_highlevel_controller_node.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o[0m
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:[m[K In constructor ‘[01m[Ksmb_highlevel_controller::SmbHighlevelController::SmbHighlevelController(ros::NodeHandle&)[m[K’:
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:29:63:[m[K [01;31m[Kerror: [m[Kinvalid use of non-static member function ‘[01m[Kbool smb_highlevel_controller::SmbHighlevelController::stopCallback(std_srvs::SetBool::Request&, std_srvs::SetBool::Response&)[m[K’
+   29 |     stop_service = nodeHandle_.advertiseService(service_name, [01;31m[KstopCallback[m[K);
+      |                                                               [01;31m[K^~~~~~~~~~~~[m[K
+In file included from [01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:1[m[K:
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/include/smb_highlevel_controller/SmbHighlevelController.hpp:38:8:[m[K [01;36m[Knote: [m[Kdeclared here
+   38 |   bool [01;36m[KstopCallback[m[K(std_srvs::SetBool::Request &request,
+      |        [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:[m[K In function ‘[01m[Kbool smb_highlevel_controller::stopCallback(std_srvs::SetBool::Request&, std_srvs::SetBool::Response&)[m[K’:
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:47:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kstop[m[K’ was not declared in this scope
+   47 |       [01;31m[Kstop[m[K = true;
+      |       [01;31m[K^~~~[m[K
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:51:7:[m[K [01;31m[Kerror: [m[K‘[01m[Kstop[m[K’ was not declared in this scope
+   51 |       [01;31m[Kstop[m[K = false;
+      |       [01;31m[K^~~~[m[K
+[01m[K/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/src/smb_highlevel_controller/src/SmbHighlevelController.cpp:54:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope; did you mean ‘[01m[Kros[m[K’?
+   54 |     [01;31m[Kres[m[K.success = true;
+      |     [01;31m[K^~~[m[K
+      |     [32m[Kros[m[K
+make[2]: *** [CMakeFiles/smb_highlevel_controller.dir/build.make:76: CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/smb_highlevel_controller.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

@@ -17,19 +17,43 @@ namespace smb_highlevel_controller
     {
       ROS_ERROR("Could not find proportional parameter!");
     }
+    if (!nodeHandle_.getParam("service", service_name))
+    {
+      ROS_ERROR("Could not find proportional parameter!");
+    }
+
     subscriber_ = nodeHandle_.subscribe(topic, queue_size, &SmbHighlevelController::topicCallback, this);
     sub_pointcloud = nodeHandle_.subscribe("/rslidar_points", 10, &SmbHighlevelController::pointcloudCallback, this);
     go_to_pillar = nodeHandle_.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
     vis_pub = nodeHandle_.advertise<visualization_msgs::Marker>("visualization_marker", 10);
+    stop_service = nodeHandle_.advertiseService(service_name, &SmbHighlevelController::stopCallback, this);
 
     turned = false;
     arrived = false;
     command_to_go = 11;
+    stop = false;
     ROS_INFO("Successfully launched node.");
   }
 
   SmbHighlevelController::~SmbHighlevelController()
   {
+  }
+
+  bool SmbHighlevelController::stopCallback(std_srvs::SetBool::Request &request,
+                                            std_srvs::SetBool::Response &response)
+  {
+    if (request.data)
+    {
+      stop = true;
+    }
+    else
+    {
+      stop = false;
+    }
+
+    response.success = true;
+    response.message = "Service executed successfully";
+    return true;
   }
 
   void SmbHighlevelController::topicCallback(const sensor_msgs::LaserScan::ConstPtr &msg)
@@ -64,18 +88,30 @@ namespace smb_highlevel_controller
 
     // Construct the command message
     geometry_msgs::Twist velo_command;
-    velo_command.angular.z = angle_to_middle * proportional;
-    if (min > 2)
+
+    if (!stop)
     {
-      velo_command.linear.x = 0.5;
+      velo_command.angular.z = angle_to_middle * proportional;
+      if (min > 2)
+      {
+        velo_command.linear.x = 0.5;
+      }
+      else
+      {
+        velo_command.linear.x = 0.0;
+        velo_command.angular.z = angle_to_middle * 0.1 * proportional;
+      }
+
+      go_to_pillar.publish(velo_command);
     }
     else
     {
       velo_command.linear.x = 0.0;
-      velo_command.angular.z = angle_to_middle * 0.1 * proportional;
+      velo_command.linear.y = 0.0;
+      velo_command.angular.z = 0.0;
+      go_to_pillar.publish(velo_command);
     }
 
-    go_to_pillar.publish(velo_command);
     // if (!turned)
     // {
     //   if (abs(angle_to_middle) > 0.01)

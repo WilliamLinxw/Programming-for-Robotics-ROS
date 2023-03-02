@@ -1,3 +1,4 @@
 topic: "/scan"
 queue_size: 10
 proportional: 0.5
+service: "/stop_request"

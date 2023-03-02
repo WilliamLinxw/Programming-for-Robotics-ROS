@@ -7,55 +7,62 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include <visualization_msgs/Marker.h>
-// #include <pcl_conversions/pcl_conversions.h>
-// #include <pcl/point_cloud.h>
-// #include <pcl/point_types.h>
+#include <std_srvs/SetBool.h>
 
-
-
-namespace smb_highlevel_controller {
-
-/*!
- * Class containing the Husky Highlevel Controller
- */
-class SmbHighlevelController {
-public:
-	/*!
-	 * Constructor.
-	 */
-	SmbHighlevelController(ros::NodeHandle& nodeHandle);
+namespace smb_highlevel_controller
+{
 
 	/*!
-	 * Destructor.
+	 * Class containing the Husky Highlevel Controller
 	 */
-	virtual ~SmbHighlevelController();
+	class SmbHighlevelController
+	{
+	public:
+		/*!
+		 * Constructor.
+		 */
+		SmbHighlevelController(ros::NodeHandle &nodeHandle);
 
-private:
-	ros::NodeHandle nodeHandle_;
+		/*!
+		 * Destructor.
+		 */
+		virtual ~SmbHighlevelController();
 
-	void topicCallback(const sensor_msgs::LaserScan::ConstPtr& msg);
+	private:
+		ros::NodeHandle nodeHandle_;
 
-	void pointcloudCallback(const sensor_msgs::PointCloud2::ConstPtr& cloud_msg);
+		void topicCallback(const sensor_msgs::LaserScan::ConstPtr &msg);
 
-	ros::Subscriber subscriber_;
+		void pointcloudCallback(const sensor_msgs::PointCloud2::ConstPtr &cloud_msg);
 
-	ros::Subscriber sub_pointcloud;
+		bool stopCallback(std_srvs::SetBool::Request &request,
+						  std_srvs::SetBool::Response &response);
 
-	ros::Publisher go_to_pillar;
+		ros::Subscriber subscriber_;
 
-	ros::Publisher vis_pub;
+		ros::Subscriber sub_pointcloud;
 
-	bool turned;
+		ros::Publisher go_to_pillar;
 
-	bool arrived;
+		ros::Publisher vis_pub;
 
-	float proportional;
+		ros::ServiceServer stop_service;
 
-	int queue_size;
+		bool turned;
 
-	std::string topic;
+		bool arrived;
 
-	int command_to_go;
-};
+		float proportional;
+
+		int queue_size;
+
+		std::string topic;
+
+		std::string service_name;
+
+		int command_to_go;
+
+		bool stop;
+	};
 
 } /* namespace */
