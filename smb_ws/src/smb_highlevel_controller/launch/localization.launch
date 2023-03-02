@@ -21,6 +21,8 @@
         <remap from="robot_description" to="$(arg robot_description)"/>
     </node>
 
+    <node pkg="tf" type="static_transform_publisher" name="smb_top_view_broadcaster" args="0 0 2 0 0 0 1 /base_link /smb_top_view 100" />
+
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find smb_highlevel_controller)/rviz/soccer.rviz"/>
 
     <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
@@ -28,5 +30,6 @@
     </node>
 
     <node name="rqt_multiplot" pkg="rqt_multiplot" type="rqt_multiplot" args="--multiplot-run-all --multiplot-config $(find smb_highlevel_controller)/config/rqt_multiplot.xml" />
+    <node pkg="rosbag" type="play" name="player" output="screen" args="--clock --rate=0.5 $(find smb_highlevel_controller)/../../../../smb_navigation.bag"/>
     <param name="/use_sim_time" value="true"/>
 </launch>
