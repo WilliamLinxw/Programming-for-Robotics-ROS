@@ -1,0 +1,9 @@
+[35m[1mScanning dependencies of target stop_client[0m
+[35m[1mScanning dependencies of target smb_highlevel_controller[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/stop_client.dir/src/stop_client.cpp.o[0m
+[ 42%] Built target crash_client
+[ 57%] [32mBuilding CXX object CMakeFiles/smb_highlevel_controller.dir/src/smb_highlevel_controller_node.cpp.o[0m
+[ 71%] [32m[1mLinking CXX executable /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/.private/smb_highlevel_controller/lib/smb_highlevel_controller/smb_highlevel_controller[0m
+[ 85%] Built target smb_highlevel_controller
+[100%] [32m[1mLinking CXX executable /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/.private/smb_highlevel_controller/lib/smb_highlevel_controller/stop_client[0m
+[100%] Built target stop_client

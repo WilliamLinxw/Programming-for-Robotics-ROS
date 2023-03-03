@@ -21,7 +21,7 @@ namespace smb_highlevel_controller
     {
       ROS_ERROR("Could not find proportional parameter!");
     }
-
+    
     subscriber_ = nodeHandle_.subscribe(topic, queue_size, &SmbHighlevelController::topicCallback, this);
     sub_pointcloud = nodeHandle_.subscribe("/rslidar_points", 10, &SmbHighlevelController::pointcloudCallback, this);
     go_to_pillar = nodeHandle_.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
@@ -74,17 +74,17 @@ namespace smb_highlevel_controller
     float angle_from_right = index * angle_inc;
     float angle_to_middle = -M_PI / 2 + angle_from_right;
     ROS_INFO("min range: %f; index: %d", min, index);
-    // ROS_INFO("angle increment: %f", angle_inc);
-    // ROS_INFO("angle from right: %f", angle_from_right);
     ROS_INFO("angle to middle: %f", angle_to_middle);
 
     // Construct the command message
     geometry_msgs::Twist velo_command;
 
+    ROS_INFO("STOP? %d", stop);
+
     if (!stop)
     {
       velo_command.angular.z = angle_to_middle * proportional;
-      if (min > 2)
+      if (min > 0)
       {
         velo_command.linear.x = 0.5;
       }

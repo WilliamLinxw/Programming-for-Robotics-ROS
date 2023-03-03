@@ -4,9 +4,9 @@
 int main(int argc, char** argv) {
   ros::init(argc, argv, "smb_highlevel_controller");
   ros::NodeHandle nodeHandle("~");
-  
-  smb_highlevel_controller::SmbHighlevelController smbHighlevelController(nodeHandle);
 
+  smb_highlevel_controller::SmbHighlevelController smbHighlevelController(nodeHandle);
+  
   ros::spin();
   return 0;
 }

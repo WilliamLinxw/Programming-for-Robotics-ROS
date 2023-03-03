@@ -10,6 +10,12 @@
         <arg name="laser_scan_max_height" value="1.0"/>
     </include>   
 
+    <!-- If the params are load in this way, it will be loaded as global params. -->
+    <!-- In this case, in nodehandle.getparam(), you have to specify global params as "/param" -->
+    <!-- Otherwise it will be intepreted as /name/param if the nodehandle is declared as private "~" -->
+    <!-- <rosparam command="load" file="$(find smb_highlevel_controller)/config/config.yaml" /> -->
+
+
     <node pkg="smb_highlevel_controller" type="smb_highlevel_controller" name="smb_highlevel_controller" output="screen" launch-prefix="gnome-terminal --command">
         <rosparam command="load" file="$(find smb_highlevel_controller)/config/config.yaml" />
     </node>

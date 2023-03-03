@@ -1,0 +1,6 @@
+[35m[1mScanning dependencies of target crash_client[0m
+[ 28%] Built target stop_client
+[ 42%] [32mBuilding CXX object CMakeFiles/crash_client.dir/src/crash_client.cpp.o[0m
+[ 85%] Built target smb_highlevel_controller
+[100%] [32m[1mLinking CXX executable /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/devel/.private/smb_highlevel_controller/lib/smb_highlevel_controller/crash_client[0m
+[100%] Built target crash_client

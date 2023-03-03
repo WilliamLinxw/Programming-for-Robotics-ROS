@@ -51,6 +51,12 @@ add_executable(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES})
 
+add_executable(stop_client src/stop_client.cpp)
+target_link_libraries(stop_client ${catkin_LIBRARIES})
+
+add_executable(crash_client src/crash_client.cpp)
+target_link_libraries(crash_client ${catkin_LIBRARIES})
+
 #############
 ## Install ##
 #############

@@ -1,6 +1,8 @@
 /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/build/smb_highlevel_controller/CMakeFiles/install/strip.dir
-/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/build/smb_highlevel_controller/CMakeFiles/install.dir
 /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/build/smb_highlevel_controller/CMakeFiles/edit_cache.dir
+/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/build/smb_highlevel_controller/CMakeFiles/crash_client.dir
+/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/build/smb_highlevel_controller/CMakeFiles/install.dir
+/home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/build/smb_highlevel_controller/CMakeFiles/stop_client.dir
 /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/build/smb_highlevel_controller/CMakeFiles/list_install_components.dir
 /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/build/smb_highlevel_controller/CMakeFiles/smb_highlevel_controller.dir
 /home/lin/Workspaces/Programming-for-Robotics-ROS/smb_ws/build/smb_highlevel_controller/CMakeFiles/std_srvs_generate_messages_lisp.dir

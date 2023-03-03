@@ -68,6 +68,17 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -79,17 +90,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -166,6 +166,32 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named crash_client
+
+# Build rule for target.
+crash_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 crash_client
+.PHONY : crash_client
+
+# fast build rule for target.
+crash_client/fast:
+	$(MAKE) -f CMakeFiles/crash_client.dir/build.make CMakeFiles/crash_client.dir/build
+.PHONY : crash_client/fast
+
+#=============================================================================
+# Target rules for targets named stop_client
+
+# Build rule for target.
+stop_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stop_client
+.PHONY : stop_client
+
+# fast build rule for target.
+stop_client/fast:
+	$(MAKE) -f CMakeFiles/stop_client.dir/build.make CMakeFiles/stop_client.dir/build
+.PHONY : stop_client/fast
 
 #=============================================================================
 # Target rules for targets named smb_highlevel_controller
@@ -714,6 +740,33 @@ src/SmbHighlevelController.cpp.s:
 	$(MAKE) -f CMakeFiles/smb_highlevel_controller.dir/build.make CMakeFiles/smb_highlevel_controller.dir/src/SmbHighlevelController.cpp.s
 .PHONY : src/SmbHighlevelController.cpp.s
 
+src/crash_client.o: src/crash_client.cpp.o
+
+.PHONY : src/crash_client.o
+
+# target to build an object file
+src/crash_client.cpp.o:
+	$(MAKE) -f CMakeFiles/crash_client.dir/build.make CMakeFiles/crash_client.dir/src/crash_client.cpp.o
+.PHONY : src/crash_client.cpp.o
+
+src/crash_client.i: src/crash_client.cpp.i
+
+.PHONY : src/crash_client.i
+
+# target to preprocess a source file
+src/crash_client.cpp.i:
+	$(MAKE) -f CMakeFiles/crash_client.dir/build.make CMakeFiles/crash_client.dir/src/crash_client.cpp.i
+.PHONY : src/crash_client.cpp.i
+
+src/crash_client.s: src/crash_client.cpp.s
+
+.PHONY : src/crash_client.s
+
+# target to generate assembly for a file
+src/crash_client.cpp.s:
+	$(MAKE) -f CMakeFiles/crash_client.dir/build.make CMakeFiles/crash_client.dir/src/crash_client.cpp.s
+.PHONY : src/crash_client.cpp.s
+
 src/smb_highlevel_controller_node.o: src/smb_highlevel_controller_node.cpp.o
 
 .PHONY : src/smb_highlevel_controller_node.o
@@ -741,6 +794,33 @@ src/smb_highlevel_controller_node.cpp.s:
 	$(MAKE) -f CMakeFiles/smb_highlevel_controller.dir/build.make CMakeFiles/smb_highlevel_controller.dir/src/smb_highlevel_controller_node.cpp.s
 .PHONY : src/smb_highlevel_controller_node.cpp.s
 
+src/stop_client.o: src/stop_client.cpp.o
+
+.PHONY : src/stop_client.o
+
+# target to build an object file
+src/stop_client.cpp.o:
+	$(MAKE) -f CMakeFiles/stop_client.dir/build.make CMakeFiles/stop_client.dir/src/stop_client.cpp.o
+.PHONY : src/stop_client.cpp.o
+
+src/stop_client.i: src/stop_client.cpp.i
+
+.PHONY : src/stop_client.i
+
+# target to preprocess a source file
+src/stop_client.cpp.i:
+	$(MAKE) -f CMakeFiles/stop_client.dir/build.make CMakeFiles/stop_client.dir/src/stop_client.cpp.i
+.PHONY : src/stop_client.cpp.i
+
+src/stop_client.s: src/stop_client.cpp.s
+
+.PHONY : src/stop_client.s
+
+# target to generate assembly for a file
+src/stop_client.cpp.s:
+	$(MAKE) -f CMakeFiles/stop_client.dir/build.make CMakeFiles/stop_client.dir/src/stop_client.cpp.s
+.PHONY : src/stop_client.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -748,8 +828,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
 	@echo "... edit_cache"
+	@echo "... crash_client"
+	@echo "... install"
+	@echo "... stop_client"
 	@echo "... list_install_components"
 	@echo "... smb_highlevel_controller"
 	@echo "... std_srvs_generate_messages_lisp"
@@ -797,9 +879,15 @@ help:
 	@echo "... src/SmbHighlevelController.o"
 	@echo "... src/SmbHighlevelController.i"
 	@echo "... src/SmbHighlevelController.s"
+	@echo "... src/crash_client.o"
+	@echo "... src/crash_client.i"
+	@echo "... src/crash_client.s"
 	@echo "... src/smb_highlevel_controller_node.o"
 	@echo "... src/smb_highlevel_controller_node.i"
 	@echo "... src/smb_highlevel_controller_node.s"
+	@echo "... src/stop_client.o"
+	@echo "... src/stop_client.i"
+	@echo "... src/stop_client.s"
 .PHONY : help
 
 
